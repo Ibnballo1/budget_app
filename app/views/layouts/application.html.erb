@@ -7,13 +7,12 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <h1>From main App</h1>
     <% if user_signed_in? %>
-      <p>Welcome <%= current_user.name %></p>
       <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
     <% end %>
     <p class="notice"><%= notice %></p>
