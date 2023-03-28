@@ -8,6 +8,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 
+  def after_sign_in_path_for(resource)
+    users_path
+  end
+
+  def after_sign_up_path_for(resource)
+    new_user_path
+  end
+
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, alert: exception.message
   end

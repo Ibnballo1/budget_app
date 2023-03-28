@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'home_pages/home'
   # devise_for :users
   devise_for :users, path: '', path_names: {
     sign_in: 'login', sign_out: 'logout',
@@ -10,5 +11,6 @@ Rails.application.routes.draw do
     resources :entities
   end
   # Defines the root path route ("/")
-  root "users#index"
+  get 'home', to: 'home_pages#home'
+  root "home_pages#home"
 end
