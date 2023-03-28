@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
   def index
-    puts "User index________#{User}"
+    @users = User.all
   end
 
   def show
-    puts 'This show action _______________'
+    @user = User.find(params[:id])
   end
 
   def new
-    puts 'This is new action ____________'
+    @user = User.new
   end
 end

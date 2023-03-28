@@ -1,13 +1,13 @@
 class EntitiesController < ApplicationController
   def index
-    puts "User index________#{Entity}"
+    @entities = Entity.all
   end
 
   def show
-    puts 'This show action _______________ for entity'
+    @entity = Entity.find(params[:id])
   end
 
   def new
-    puts 'This is new action ____________ for entity'
+    @entity = Entity.new
   end
 end
