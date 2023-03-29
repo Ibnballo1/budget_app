@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   }, sign_out_via: [:get, :post]
 
   resources :users do
+    resources :groups
     resources :entities
   end
   # Defines the root path route ("/")

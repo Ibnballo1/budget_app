@@ -1,6 +1,7 @@
 class EntitiesController < ApplicationController
   def index
     @entities = Entity.all
+    @groups = Group.all
   end
 
   def show

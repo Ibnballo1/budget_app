@@ -1,1 +1,15 @@
 <h1>This is entity index page</h1>
+<h2>Transactions</h2>
+<button>
+  <%= link_to 'Add New Transaction', new_user_entity_path %>
+</button>
+<% @entities.each do |transaction| %>
+  <p>Each Transaction: <%= transaction.name %></p>
+  <p>Each Transaction Amount: <%= transaction.amount %></p>
+<% end %>
+
+<h4>Categories</h4>
+<%= @groups.each do |category| %>
+  <p>Category Name: <%= category.name %></p>
+  <p>Category Icon: <%= category.icon %></p>
+<% end %>
