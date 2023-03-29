@@ -6,6 +6,7 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find_by(id: params[:id])
     @entity_group = EntityGroup.where(group_id: @group.id).includes([:entity])
+    # @entities = @groups.entities
   end
 
   def new

@@ -1,19 +1,15 @@
 class EntitiesController < ApplicationController
-  def index
-    @entities = Entity.all
-    @groups = Group.all
-  end
-
-  def show
-    @entity = Entity.find(params[:id])
-  end
-
   def new
+    @group = Group.find(params[:group_id])
     @entity = Entity.new
+    respond_to do |format|
+      format.html { render :new, locals: { group: @group, entity: @entity } }
+    end
   end
 
   def create
-    @entity = Entity.create(entity_params.merge(user_id: current_user.id))
+    @entity = Entity.create(entity_params.merge(user_id: current_user.id,
+                                                group_id: params[:group_id]))
 
     respond_to do |format|
       format.html do
@@ -30,6 +26,6 @@ class EntitiesController < ApplicationController
   private
 
   def entity_params
-    params.require(:entity).permit(:name, :amount)
+    params.require(:entity).permit(:name, :amount, :entity_id)
   end
 end
