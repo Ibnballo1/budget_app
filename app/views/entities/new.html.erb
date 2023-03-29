@@ -1,4 +1,7 @@
 <h1>Form for New Entity</h1>
 
-<%= form_for @user do |f| %>
+<%= form_for @entity, url: user_entities_path do |f| %>
+  <%= f.text_field :name, placeholder: 'Name' %>
+  <%= f.number_field :amount, placeholder: 'Amount' %>
+  <%= f.submit 'Submit' %>
 <% end %>
