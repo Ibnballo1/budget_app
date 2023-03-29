@@ -1,5 +1,15 @@
 <h1>This is Category Page</h1>
 
+<% @groups.each do |category| %>
+  <section class='icon_section'>
+    <div class='img_box'>
+      <img src='<%= category.icon %>' alt='Group Icon' class='img_icon'>
+    </div>
+    <p class='icon_name'><%= category.name %></p>
+    <p class='total_cash'>$</p>
+  </section>
+<% end %>
+
 <button>
   <%= link_to 'Add Category', new_user_group_path %>
 </button>

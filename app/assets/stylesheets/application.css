@@ -40,3 +40,19 @@
   flex-direction: column;
   align-items: center;
 }
+
+.icon_section {
+  border: 2px solid red;
+  margin: 0.75rem;
+}
+
+.img_box {
+  border: 2px solid greenyellow;
+  width: 50px;
+  height: 50px;
+}
+
+.img_icon {
+  width: 100%;
+  height: 100%;
+}
