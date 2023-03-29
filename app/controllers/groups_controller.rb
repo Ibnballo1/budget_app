@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group = Group.find(params[:id])
+    @group = Group.find_by(id: params[:id])
   end
 
   def new
@@ -12,11 +12,23 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.new(group_params)
-    if @group.save
-      redirect_to new_group_path
-    else
-      render 'new'
+    # @group = Group.new(group_params)
+    # if @group.save
+    #   redirect_to new_group_path
+    # else
+    #   render 'new'
+    # end
+
+    @group = Group.create(group_params.merge(user_id: current_user.id))
+
+    respond_to do |format|
+      format.html do
+        if @group.save
+          redirect_to groups_path
+        else
+          redirect_to new_group_path
+        end
+      end
     end
   end
 
