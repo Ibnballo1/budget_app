@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
   def index
     @groups = Group.where(user_id: current_user.id)
-    @entities_groups = EntitiesGroups.where(group_id: @groups.pluck(:id)).includes([:entity])
+    @entities_groups = EntityGroup.where(group_id: @groups.pluck(:id)).includes([:entity])
   end
 
   def show

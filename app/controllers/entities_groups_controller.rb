@@ -1,2 +1,0 @@
-class EntitiesGroupsController < ApplicationController
-end
