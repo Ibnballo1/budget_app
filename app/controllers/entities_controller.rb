@@ -14,7 +14,7 @@ class EntitiesController < ApplicationController
     if @entity.save
       # Create associations between the entity and groups
       @entity.groups << Group.find(params[:entity][:group_id]) if params[:entity][:group_id].present?
-      redirect_to user_groups_path, notice: 'Entity was successfully created.'
+      redirect_to groups_path, notice: 'Entity was successfully created.'
     else
       redirect_to new_entity_path
     end
