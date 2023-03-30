@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     registration: 'register', edit: 'edit/profile'
   }, sign_out_via: [:get, :post]
 
-  resources :users, only: [index]
+  resources :users, only: [:index]
   resources :groups do
     resources :entities
   end
