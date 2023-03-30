@@ -5,7 +5,7 @@
     <div class='img_box'>
       <img src='<%= category.icon %>' alt='Group Icon' class='img_icon'>
     </div>
-    <p class='icon_name'><%= link_to category.name, {:action => 'show', :id => category.id} %></p>
+    <p class='icon_name'><%= link_to category.name, group_entities_path(category) %></p>
     <p class='total_cash'>$<%= category.entities.sum(:amount) %></p>
   </section>
 <% end %>
