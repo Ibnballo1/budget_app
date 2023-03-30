@@ -3,5 +3,9 @@
 <%= form_for @entity, url: user_entities_path do |f| %>
   <%= f.text_field :name, placeholder: 'Name' %>
   <%= f.number_field :amount, placeholder: 'Amount' %>
+  <div class="form-group">
+    <%= f.label :group_ids %>
+    <%= f.collection_select :group_ids, Group.all, :id, :name, {}, { multiple: true } %>
+  </div>
   <%= f.submit 'Submit' %>
 <% end %>

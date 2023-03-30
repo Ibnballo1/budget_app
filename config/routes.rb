@@ -7,11 +7,11 @@ Rails.application.routes.draw do
     registration: 'register', edit: 'edit/profile'
   }, sign_out_via: [:get, :post]
 
-  resources :users do
-    resources :groups
+  resources :users, only: [:index]
+  resources :groups do
     resources :entities
   end
   # Defines the root path route ("/")
-  get 'home', to: 'home_pages#home'
-  root "home_pages#home"
+  get 'index', to: 'users#index'
+  root "users#index"
 end

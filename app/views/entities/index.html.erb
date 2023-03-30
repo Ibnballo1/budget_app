@@ -4,9 +4,6 @@
   <%= link_to 'Add New Transaction', new_user_entity_path %>
 </button>
 <h4>Categories</h4>
-<% @groups.each do |category| %>
-  <p>Category Name: <%= category.name %></p>
-<% end %>
 <% @entities.each do |transaction| %>
   <p>Each Transaction: <%= transaction.name %></p>
   <p>Each Transaction Amount: <%= transaction.amount %></p>
