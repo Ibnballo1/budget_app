@@ -3,30 +3,30 @@ class GroupsController < ApplicationController
     @groups = Group.where(user_id: current_user.id)
   end
 
-  def show
-    @group = Group.find_by(id: params[:id])
-    @entities = @group.entities.order(created_at: :desc)
-  end
+  # def show
+  #   @group = Group.find_by(id: params[:id])
+  #   @entities = @group.entities.order(created_at: :desc)
+  # end
 
-  def new
-    @group = Group.new
-  end
+  # def new
+  #   @group = Group.new
+  # end
 
-  def create
-    @group = Group.new(group_params)
-    @group.user_id = current_user.id
+  # def create
+  #   @group = Group.new(group_params)
+  #   @group.user_id = current_user.id
 
-    respond_to do |format|
-      if @group.save
-        # Create associations between the group and entities
-        @group.entities << Entity.find(params[:group][:entity_id]) if params[:group][:entity_id].present?
+  #   respond_to do |format|
+  #     if @group.save
+  #       # Create associations between the group and entities
+  #       @group.entities << Entity.find(params[:group][:entity_id]) if params[:group][:entity_id].present?
 
-        format.html { redirect_to user_groups_path, notice: 'Group was successfully created.' }
-      else
-        format.html { render :new }
-      end
-    end
-  end
+  #       format.html { redirect_to user_groups_path, notice: 'Group was successfully created.' }
+  #     else
+  #       format.html { render :new }
+  #     end
+  #   end
+  # end
 
   private
 
