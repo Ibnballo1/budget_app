@@ -1,0 +1,7 @@
+<h1>Page to create a new Category</h1>
+<%= form_for @group, url: groups_path do |f| %>
+  <%= f.text_field :name, placeholder: 'Name' %>
+  <%= f.text_field :icon, placeholder: 'Icon Link' %>
+  <%= f.hidden_field :group_id, value: @group.id %>
+  <%= f.submit 'Submit' %>
+<% end %>

@@ -1,0 +1,16 @@
+<h1>This is Category Page</h1>
+
+<% @groups.each do |category| %>
+  <section class='icon_section'>
+    <div class='img_box'>
+      <img src='<%= category.icon %>' alt='Group Icon' class='img_icon'>
+    </div>
+    <p class='icon_name'><%= link_to category.name, group_entities_path(group_id: category.id) %></p>
+    <p class='total_cash'>$<%= category.entities.sum(:amount) %></p>
+  </section>
+  <%= category.entities %>
+<% end %>
+
+<button>
+  <%= link_to 'Add Category', new_group_path %>
+</button>

@@ -1,0 +1,8 @@
+<h1>Form for New Entity</h1>
+
+<%= form_for @entity, url: group_entities_path do |f| %>
+  <%= f.text_field :name, placeholder: 'Name' %>
+  <%= f.number_field :amount, placeholder: 'Amount' %>
+  <%= f.collection_select :group_ids, Group.all, :id, :name, {}, { multiple: true } %>
+  <%= f.submit 'Submit' %>
+<% end %>
