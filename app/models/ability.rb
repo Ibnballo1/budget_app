@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -8,9 +6,11 @@ class Ability
     can :read, Entity, public: true
 
     return unless user.present?
-    can :read, Entity, user: user
+
+    can(:read, Entity, user:)
 
     return unless user.admin?
+
     can :manage, Entity
   end
 end
