@@ -82,9 +82,22 @@ body {
   align-items: flex-end;
 }
 
-.form-div form input {
-  width: 100vw;
-  padding: 7px 10px;
+.login_head a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.form_div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-div input {
+  width: 90%;
+  padding: 0.5rem 0.625rem;
+  border: none;
+  background-color: #fff;
 }
 
 .partial-links {

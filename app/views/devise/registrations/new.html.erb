@@ -1,5 +1,6 @@
 <div class='login_head'>
-  <i class="fa fa-arrow-left" style='color: white; font-weight: light;'></i>
+  <%# <i class="fa fa-arrow-left" style='color: white; font-weight: light;'></i> %>
+  <%= link_to 'BACK', root_path %>
   <h3>REGISTER</h3>
   <p>Next</p>
 </div>
@@ -8,20 +9,12 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
   
-    <div class="field">
-      <%= f.text_field :name, placeholder: 'Full name' %>
-    </div>
+    <%= f.text_field :name, placeholder: 'Full name' %>
+
+    <%= f.email_field :email, placeholder: 'Email' %>
   
-    <div class="field">
-      <%= f.email_field :email, placeholder: 'Email' %>
-    </div>
+    <%= f.password_field :password, placeholder: 'Password' %>
   
-    <div class="field">
-      <%= f.password_field :password, placeholder: 'Password' %>
-    </div>
-  
-    <div class="actions">
-      <%= f.submit "Sign up" %>
-    </div>
+    <%= f.submit "Sign up" %>
   <% end %>
 </div>
