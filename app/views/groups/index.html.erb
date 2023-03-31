@@ -1,15 +1,14 @@
-<h1>This is Category Page</h1>
+<section class="group">
+  <p class="header-title">CATEGORIES</p>
+  <div class="group-container" id="groups">
+    <% @groups.each do |group| %>
+      <%= link_to group_path(group.id), class: "group-link" do %>
+        <%= render group %>
+      <% end %>
+    <% end %>
+  </div>
 
-<% @groups.each do |category| %>
-  <section class='icon_section'>
-    <div class='img_box'>
-      <img src='<%= category.icon %>' alt='Group Icon' class='img_icon'>
-    </div>
-    <p class='icon_name'><%= link_to category.name, group_entities_path(group_id: category.id) %></p>
-    <p class='total_cash'>$</p>
-  </section>
-<% end %>
-
-<button>
-  <%= link_to 'Add Category', new_group_path %>
-</button>
+  <div class="footer">
+    <%= link_to "ADD CATEGORY", new_group_path, class: "btn-bottom" %>
+  </div>
+</section>

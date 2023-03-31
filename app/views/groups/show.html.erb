@@ -1,6 +1,25 @@
-<h1>This is for each Category Show page</h1>
+<nav class="group-header"> 
+  <%= link_to "BACK", groups_path, class: "link-header" %>
+  <%= link_to "EDIT", edit_group_path(@group), class: "link-header" %>
+  <%= button_to "REMOVE", @group, method: :delete, class: "btn-header" %>
+</nav>
 
-<%= @group.name %>
-<%= @entities.each do |item| %>
-  <%= item %>
-<% end %>
+<%= render @group %>
+
+<div class="entities-container">
+  <% @entities.each do |entity| %>
+    <%= link_to group_entity_path(@group.id, entity.id), class: "group-link" do %>
+      <div class="entities-item">
+        <div class="entity-info">
+          <p><%= entity.name %></p>
+          <p><%= entity.created_at %></p>
+        </div>
+        <p>$<%= entity.amount %></p>
+      </div>
+    <% end %> 
+  <% end %> 
+</div>
+
+<div>
+  <%= button_to "ADD TRANSACTION", new_group_entity_path(@group.id), method: :get, class: "btn-bottom" %>
+</div>
