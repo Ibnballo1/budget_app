@@ -11,8 +11,6 @@ class GroupsController < ApplicationController
     @entities = @group.entities.order(created_at: :desc)
   end
 
-  def edit; end
-
   def new
     @group = Group.new
   end
