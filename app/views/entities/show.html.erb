@@ -1,1 +1,7 @@
-<h2>This is entity index page</h2>
+<nav class="group-header"> 
+  <%= link_to "BACK", group_path(@group), class: "link-header" %>
+  <p class="header-title">Details</p>
+  <%= button_to "REMOVE", @entity_group, method: :delete, class: "btn-header" %>
+</nav>
+
+<%= render @entity %>
