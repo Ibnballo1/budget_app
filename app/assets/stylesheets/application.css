@@ -88,7 +88,8 @@ body {
   text-decoration: none;
 }
 
-.form-div input {
+.form-div input,
+.group-form input {
   width: 100%;
   padding: 0.75rem;
   border: none;
@@ -115,10 +116,20 @@ body {
   margin: 0 0.425rem 0.425rem 0.425rem;
 }
 
-/* #groups {
-  padding: 0.45rem;
-  background-color: #fff;
-} */
+nav.group-header {
+  padding: 0.75rem;
+  background-color: #3778c2;
+  margin-bottom: 0.75rem;
+}
+
+nav.group-header .link-header {
+  text-decoration: none;
+  color: #fff;
+}
+
+nav.group-header .header-title {
+  color: #fff;
+}
 
 .group-item {
   display: flex;
@@ -165,20 +176,4 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.icon_section {
-  border: 2px solid red;
-  margin: 0.75rem;
-}
-
-.img_box {
-  border: 2px solid greenyellow;
-  width: 50px;
-  height: 50px;
-}
-
-.img_icon {
-  width: 100%;
-  height: 100%;
 }
