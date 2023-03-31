@@ -7,16 +7,10 @@
 
 <div class='form-div'>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.email_field :email, placeholder: 'Email' %>
-    </div>
-  
-    <div class="field">
-      <%= f.password_field :password, placeholder: 'Password' %>
-    </div>
-  
-    <div class="actions">
+    <%= f.email_field :email, placeholder: 'Email' %>
+
+    <%= f.password_field :password, placeholder: 'Password' %>
+
       <%= f.submit "Log in" %>
-    </div>
   <% end %>
 </div>
