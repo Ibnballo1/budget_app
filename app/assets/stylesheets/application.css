@@ -19,6 +19,58 @@
   margin: 0;
 }
 
+body {
+  color: #434b54;
+  font-family: sans-serif;
+}
+
+#home_page {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 65% 35%;
+}
+
+.home_page {
+  margin: auto 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.log_btn {
+  display: flex;
+  flex-direction: column;
+  margin: 0.75rem;
+}
+
+.btn {
+  padding: 0.85rem;
+  border-radius: 2px;
+  border: none;
+}
+
+.login_btn {
+  background-color: #3778c2;
+}
+
+.signup_btn {
+  background-color: #fff;
+}
+
+.login_btn a {
+  color: #fff;
+}
+
+.login_btn a,
+.signup_btn a {
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.signup_btn a {
+  color: #434b54;
+}
+
 .login_head {
   display: flex;
   height: 40px;

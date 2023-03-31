@@ -1,10 +1,12 @@
-<h2>Snapscan</h2>
-<div>
-  <button>
-    <%= link_to 'LOG IN', new_user_session_path %>
-  </button>
-  
-  <button>
-    <%= link_to 'SIGN UP', new_user_registration_path %>
-  </button>
-</div>
+<section id='home_page'>
+  <h2 class='home_page'>CashControl</h2>
+  <div class='log_btn'>
+    <button class='btn login_btn'>
+      <%= link_to 'LOG IN', new_user_session_path %>
+    </button>
+
+    <button class='btn signup_btn'>
+      <%= link_to 'SIGN UP', new_user_registration_path %>
+    </button>
+  </div>
+</section>
