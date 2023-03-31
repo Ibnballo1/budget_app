@@ -1,43 +1,76 @@
 class EntitiesController < ApplicationController
+  before_action :set_entity, only: %i[show edit update destroy]
+
   def index
-    @group = Group.find(params[:group_id])
-    @entities = @group.entities
+    @group_id = params[:group_id]
+    @entities = Entity.all
   end
 
   def new
+    @group_id = params[:group_id]
     @entity = Entity.new
   end
 
+  def show
+    @group = Group.find(params[:group_id])
+  end
+
+  def edit
+    @group = Group.find(params[:group_id])
+    @entity = Entity.find(params[:id])
+  end
+
   def create
+    @user = current_user
     @entity = Entity.new(entity_params)
-    @entity.user = current_user
+    @entity.user_id = @user.id
 
     if @entity.save
-      # Create associations between the entity and groups
-      # @entity.groups << Group.find(params[:entity][:group_id]) if params[:entity][:group_id].present?
-      # @entities_group = Entity_Group.new()
-      @group = Group.find(:id)
-      @entity.groupss << @group
-      redirect_to groups_path, notice: 'Entity was successfully created.'
+      @group_id = params[:group_id]
+      @entity_group = EntityGroup.new(entity_id: @entity.id, group_id: @group_id)
+
+      if @entity_group.save
+        redirect_to group_url(@group_id), notice: 'Entity was successfully created.'
+      else
+        flash[:alert] = 'Entity Group couldn`t be saved'
+        redirect_to new_group_entity_url(@group_id)
+      end
     else
-      redirect_to new_entity_path
+      flash[:alert] = 'Transaction couldn`t be saved, please check name and amount'
+      @group_id = params[:group_id]
+      redirect_to new_group_entity_url(@group_id)
     end
   end
 
   def update
-    if @entity.update(entity_params)
-      # Clear existing associations and create new ones
-      @entity.groups.clear
-      @entity.groups << Group.find(params[:entity][:group_id]) if params[:entity][:group_id].present?
-      redirect_to @entity, notice: 'Entity was successfully updated.'
-    else
-      render :edit
+    @group = Group.find(params[:group_id])
+    @entity = Entity.find(params[:id])
+
+    respond_to do |format|
+      if @entity.update(entity_params)
+        format.html { redirect_to entity_url(@entity), notice: 'Entity was successfully updated.' }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @group = Group.find(params[:group_id])
+    @entity.destroy
+
+    respond_to do |format|
+      format.html { redirect_to group_url(@group), notice: 'Transaction was successfully destroyed.' }
     end
   end
 
   private
 
+  def set_entity
+    @entity = Entity.find(params[:id])
+  end
+
   def entity_params
-    params.require(:entity).permit(:name, :amount, :group_id)
+    params.require(:entity).permit(:name, :amount)
   end
 end
