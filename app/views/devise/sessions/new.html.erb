@@ -1,0 +1,21 @@
+<div class='login_head'>
+  <i class="fa fa-arrow-left" style='color: white; font-weight: light;'></i>
+  <h3>LOGIN</h3>
+  <p>Log In</p>
+</div>
+
+<div class='form-div'>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.email_field :email, placeholder: 'Email' %>
+    </div>
+  
+    <div class="field">
+      <%= f.password_field :password, placeholder: 'Password' %>
+    </div>
+  
+    <div class="actions">
+      <%= f.submit "Log in" %>
+    </div>
+  <% end %>
+</div>
