@@ -1,37 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe 'Entities', type: :request do
-  describe 'GET /index' do
-    before(:example) do
-      @user = User.create(name: 'Ibnballo')
-      @entity = Entity.create(user: @user, name: 'Rice', amount: 120.0)
+  include Devise::Test::IntegrationHelpers
+
+  describe 'GET /new' do
+    before do
+      @user = User.create(name: 'Ibnballo', email: 'ibnballo@gmail.com', password: '08174355135')
+      sign_in @user
+      @group = Group.create(name: 'Food', icon: 'photo.png', user_id: @user.id)
+      get new_group_entity_path(group_id: Group.first.id)
     end
 
-    it 'Entity should be successful' do
-      get user_entities_path(@user)
-      expect(response).to have_http_status(:ok)
-    end
-
-    it "renders 'index' template" do
-      get user_entities_path(@user)
-      expect(response).to render_template('index')
-    end
-  end
-
-  describe 'GET /show' do
-    before(:example) do
-      @user = User.create(name: 'Ibnballo')
-      @entity = Entity.create(user: @user, name: 'Rice', amount: 120.0)
-    end
-
-    it 'User should be successful' do
-      get user_entities_path(@user, @entity)
-      expect(response).to have_http_status(:ok)
-    end
-
-    it "renders 'show' template" do
-      get user_entity_path(@user, @entity)
-      expect(response).to render_template('show')
+    it 'response to html' do
+      expect(response.content_type).to include 'text/html'
     end
   end
 end
