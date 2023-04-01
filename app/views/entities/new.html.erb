@@ -1,0 +1,7 @@
+<nav class="group-header"> 
+  <%= link_to "BACK", group_url(@group_id), class: "link-header" %>
+  <p class="header-title">New Transaction</p>
+  <p></p>
+</nav>
+
+<%= render "form", entity: @entity %>

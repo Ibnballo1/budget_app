@@ -1,0 +1,12 @@
+<h1>Entity groups</h1>
+
+<div id="entity_groups">
+  <% @entity_groups.each do |entity_group| %>
+    <%= render entity_group %>
+    <p>
+      <%= link_to "Show this entity group", group_entity %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New entity group", new_group_group_entity_path %>

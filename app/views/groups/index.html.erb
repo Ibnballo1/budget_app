@@ -1,0 +1,17 @@
+<section class="group">
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+  <% end %>
+  <p class="header-title">CATEGORIES</p>
+  <div class="group-container" id="groups">
+    <% @groups.each do |group| %>
+      <%= link_to group_path(group.id), class: "group-link" do %>
+        <%= render group %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="group-footer">
+    <%= link_to "ADD CATEGORY", new_group_path, class: "btn-bottom" %>
+  </div>
+</section>

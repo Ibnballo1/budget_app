@@ -1,6 +1,14 @@
 class GroupsController < ApplicationController
+  before_action :set_group, only: %i[show edit update destroy]
+
   def index
-    @groups = Group.where(user_id: current_user.id)
+    @user = current_user
+    @groups = Group.where(user_id: @user.id).includes(:entity_groups)
+  end
+
+  def show
+    @group = Group.find(params[:id])
+    @entities = @group.entities.order(created_at: :desc)
   end
 
   def new
@@ -8,41 +16,43 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.create(group_params.merge(user_id: current_user.id))
+    @group = Group.new(group_params)
+    @group.user_id = current_user.id
 
     respond_to do |format|
-      format.html do
-        if @group.save
-          redirect_to user_groups_path
-        else
-          redirect_to new_group_path
-        end
+      if @group.save
+        format.html { redirect_to group_url(@group), notice: 'Category was successfully created.' }
+      else
+        format.html { render :new, status: :unprocessable_entity }
       end
     end
   end
 
-  # def create
-  #   @group = Group.new(group_params)
-  #   @group.user_id = current_user.id
+  def update
+    respond_to do |format|
+      if @group.update(group_params)
+        format.html { redirect_to group_url(@group), notice: 'Category was successfully updated.' }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+      end
+    end
+  end
 
-  #   respond_to do |format|
-  #     if @group.save
-  #       # Create associations between the group and entities
-  #       # @group.entities << Entity.find(params[:group][:entity_id]) if params[:group][:entity_id].present?
-  #       # group = Group.find(1)
-  #       @entity = Entity.find(:id)
-  #       @group.entities << @entity
+  def destroy
+    @group.destroy
 
-  #       format.html { redirect_to groups_path, notice: 'Group was successfully created.' }
-  #     else
-  #       format.html { render :new }
-  #     end
-  #   end
-  # end
+    respond_to do |format|
+      format.html { redirect_to groups_url, notice: 'Category was successfully destroyed.' }
+    end
+  end
 
   private
 
+  def set_group
+    @group = Group.find(params[:id])
+  end
+
   def group_params
-    params.require(:group).permit(:name, :icon, :group_id)
+    params.require(:group).permit(:name, :icon)
   end
 end

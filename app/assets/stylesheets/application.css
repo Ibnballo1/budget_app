@@ -19,6 +19,59 @@
   margin: 0;
 }
 
+body {
+  color: #434b54;
+  font-family: sans-serif;
+  background-color: #f1f3f2;
+}
+
+#home_page {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 65% 35%;
+}
+
+.home_page {
+  margin: auto 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.log_btn {
+  display: flex;
+  flex-direction: column;
+  margin: 0.75rem;
+}
+
+.btn {
+  padding: 0.85rem;
+  border-radius: 2px;
+  border: none;
+}
+
+.login_btn {
+  background-color: #3778c2;
+}
+
+.signup_btn {
+  background-color: #fff;
+}
+
+.login_btn a {
+  color: #fff;
+}
+
+.login_btn a,
+.signup_btn a {
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.signup_btn a {
+  color: #434b54;
+}
+
 .login_head {
   display: flex;
   height: 40px;
@@ -30,29 +83,94 @@
   align-items: flex-end;
 }
 
-.form-div form input {
-  width: 100vw;
-  padding: 7px 10px;
+.login_head a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.form-div input,
+.group-form input,
+.entity-form input {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  background-color: #fff;
+  margin-bottom: 2px;
+}
+
+.group-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding: 0.425rem 0 0.425rem 0.425rem;
+  background-color: #fff;
+}
+
+.header-title {
+  font-family: sans-serif;
+  text-align: center;
+  margin: 0 0 0.425rem 0;
+}
+
+.header-title,
+#groups,
+.group-footer {
+  margin: 0 0.425rem 0.425rem 0.425rem;
+}
+
+nav.group-header {
+  padding: 0.75rem;
+  background-color: #3778c2;
+  margin-bottom: 0.75rem;
+}
+
+nav.group-header .link-header {
+  text-decoration: none;
+  color: #fff;
+}
+
+nav.group-header .header-title {
+  color: #fff;
+}
+
+.group-image {
+  width: 90px;
+  height: 90px;
+}
+
+.group-details {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.425rem;
+}
+
+.group-link {
+  color: #434b54;
+  text-decoration: none;
+}
+
+.group-details p {
+  color: #434b54;
+  text-decoration: none;
+}
+
+.group-footer {
+  background-color: #fff;
+  padding: 0.425rem 0.425rem 0.425rem 0;
+  margin-top: 1rem;
+}
+
+.group-footer a {
+  color: #fff;
+  text-decoration: none;
+  border-radius: 3px;
+  padding: 0.4rem;
+  background-color: #3778c2;
 }
 
 .partial-links {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.icon_section {
-  border: 2px solid red;
-  margin: 0.75rem;
-}
-
-.img_box {
-  border: 2px solid greenyellow;
-  width: 50px;
-  height: 50px;
-}
-
-.img_icon {
-  width: 100%;
-  height: 100%;
 }

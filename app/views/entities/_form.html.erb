@@ -1,0 +1,27 @@
+<%= form_with(model: entity, url: group_entities_path, method: :post) do |form| %>
+  <% if entity.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(entity.errors.count, "error") %> prohibited this entity from being saved:</h2>
+
+      <ul>
+        <% entity.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class='entity-form'>
+    <%= form.text_field :name, placeholder: 'Name' %>
+  </div>
+
+  <div class='entity-form'>
+    <%= form.number_field :amount %>
+  </div>
+  
+  <br>
+
+  <div class='entity-form btn-bottom'>
+    <%= form.submit %>
+  </div>
+<% end %>
