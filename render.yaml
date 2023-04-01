@@ -2,6 +2,7 @@ databases:
   - name: BudgetApp
     databaseName: budgetapp
     user: budgetapp_user
+    plan: free
 
 services:
   - type: web
