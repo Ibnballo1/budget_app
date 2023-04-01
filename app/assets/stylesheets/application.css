@@ -22,7 +22,7 @@
 body {
   color: #434b54;
   font-family: sans-serif;
-  background-color: #F1F3F2;
+  background-color: #f1f3f2;
 }
 
 #home_page {
@@ -99,6 +99,8 @@ body {
 }
 
 .group-item {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 12px;
   padding: 0.425rem 0 0.425rem 0.425rem;
   background-color: #fff;
@@ -129,11 +131,6 @@ nav.group-header .link-header {
 
 nav.group-header .header-title {
   color: #fff;
-}
-
-.group-item {
-  display: flex;
-  justify-content: space-between;
 }
 
 .group-image {
