@@ -13,7 +13,7 @@ test:
   database: BudgetApp_test
   username: postgres
 
-production:
+production:git status
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
   
