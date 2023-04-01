@@ -89,7 +89,8 @@ body {
 }
 
 .form-div input,
-.group-form input {
+.group-form input,
+.entity-form input {
   width: 100%;
   padding: 0.75rem;
   border: none;
@@ -98,7 +99,6 @@ body {
 }
 
 .group-item {
-  border: 2px solid green;
   margin-bottom: 12px;
   padding: 0.425rem 0 0.425rem 0.425rem;
   background-color: #fff;
