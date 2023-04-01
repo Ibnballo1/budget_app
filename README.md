@@ -124,7 +124,7 @@ To run tests, run the following command:
 ### Deployment
 
 You can deploy this project using:
-    - Follow the steps in this [documentation](https://render.com/docs/deploy-rails) to deploy a rails app.
+    [Live Demo](https://budgetapp-a4ps.onrender.com)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
