@@ -70,7 +70,7 @@ The **[Budget App]** is a mobile web application where you can manage your budge
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://yourdeployedapplicationlink.com)
+- [Live Demo Link](https://budgetapp-a4ps.onrender.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
